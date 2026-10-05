@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tienda Fruti Jhanet</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BARRA SUPERIOR
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            🍎 <span>Fruti Jhanet</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Quiénes Somos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="boton-carrito" onclick="abrirCarrito()">
+            🛒 Carrito
+            <span id="contadorCarrito">0</span>
+        </button>
+
+    </header>
+<section class="grupo-whatsapp">
+    <div class="grupo-contenido">
+        <h2>📲 Únete a nuestro grupo de WhatsApp</h2>
+        <p>
+            Recibe novedades, nuevos productos, frutas de temporada,
+            promociones y ofertas especiales de Fruti Jhanet.
+        </p>
+
+        <a 
+            href="https://chat.whatsapp.com/H67KbjgTUyz5UsOPWjA9GA"
+            target="_blank"
+            class="btn-whatsapp"
+        >
+            🟢 UNIRME AL GRUPO
+        </a>
+    </div>
+</section>
+
+    <!-- =========================
+         AVISO DE PRODUCTO NUEVO
+    ========================== -->
+
+    <section class="aviso">
+
+        <div>
+            <strong>🍊 ¡PRODUCTO NUEVO!</strong>
+            <p id="textoAviso">
+                Pronto anunciaremos nuestros productos de temporada.
+            </p>
+        </div>
+
+        <button onclick="abrirAviso()">
+            Ver novedad
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         INICIO
+    ========================== -->
+
+    <section id="inicio" class="hero">
+
+        <div class="hero-texto">
+
+            <p class="pequeno">
+                BIENVENIDO A
+            </p>
+
+            <h1>
+                Tienda <span>Fruti Jhanet</span>
+            </h1>
+
+            <p>
+                Frutos secos, frutas frescas y abarrotes
+                para tu hogar.
+            </p>
+
+            <button onclick="irAProductos()" class="boton-principal">
+                🛒 Comprar ahora
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORÍAS
+    ========================== -->
+
+    <section class="categorias">
+
+        <h2>Compra por categoría</h2>
+
+        <div class="categorias-grid">
+
+            <button onclick="filtrarCategoria('Frutos secos')">
+                🥜
+                <strong>Frutos secos</strong>
+            </button>
+
+            <button onclick="filtrarCategoria('Frutas')">
+                🍎
+                <strong>Frutas</strong>
+            </button>
+
+            <button onclick="filtrarCategoria('Abarrotes')">
+                🛒
+                <strong>Abarrotes</strong>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTOS
+    ========================== -->
+
+    <section id="productos" class="productos-seccion">
+
+        <div class="titulo-seccion">
+
+            <div>
+                <p class="pequeno">NUESTROS PRODUCTOS</p>
+                <h2>Productos disponibles</h2>
+            </div>
+
+            <button onclick="mostrarTodos()">
+                Ver todos
+            </button>
+
+        </div>
+
+
+        <div id="listaProductos" class="productos-grid">
+
+            <!-- JavaScript cargará aquí los productos -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIÉNES SOMOS
+    ========================== -->
+
+    <section id="nosotros" class="nosotros">
+
+        <div>
+
+            <p class="pequeno">CONÓCENOS</p>
+
+            <h2>Quiénes somos</h2>
+
+            <p>
+                En <strong>Fruti Jhanet</strong> nos dedicamos
+                a ofrecer productos seleccionados para nuestros
+                clientes, incluyendo frutos secos, frutas y
+                productos de consumo diario.
+            </p>
+
+            <p>
+                Queremos brindarte productos de buena calidad,
+                atención personalizada y la comodidad de realizar
+                tus pedidos directamente desde WhatsApp.
+            </p>
+
+            <p>
+                📍 Ubicación: <strong>Tarija, Bolivia</strong>
+            </p>
+
+        </div>
+
+        <div class="nosotros-imagen">
+            🏪
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGISTRO DE CLIENTE
+    ========================== -->
+
+    <div id="ventanaCliente" class="modal">
+
+        <div class="modal-contenido">
+
+            <button class="cerrar" onclick="cerrarCliente()">
+                ×
+            </button>
+
+            <h2>👋 Bienvenido a Fruti Jhanet</h2>
+
+            <p>
+                Antes de realizar tu pedido necesitamos algunos
+                datos.
+            </p>
+
+            <label>
+                Tu nombre
+            </label>
+
+            <input
+                type="text"
+                id="nombreCliente"
+                placeholder="Ej. Juan Pérez"
+            >
+
+            <label>
+                Tu WhatsApp
+            </label>
+
+            <input
+                type="tel"
+                id="whatsappCliente"
+                placeholder="Ej. 76812345"
+            >
+
+            <label class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="recibirAvisos"
+                >
+
+                Quiero recibir avisos de nuevos productos
+                y ofertas.
+
+            </label>
+
+            <button
+                class="boton-principal"
+                onclick="guardarCliente()"
+            >
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CARRITO
+    ========================== -->
+
+    <div id="ventanaCarrito" class="modal">
+
+        <div class="modal-contenido carrito">
+
+            <button class="cerrar" onclick="cerrarCarrito()">
+                ×
+            </button>
+
+            <h2>🛒 Mi pedido</h2>
+
+            <div id="productosCarrito">
+
+                <p class="carrito-vacio">
+                    Tu carrito está vacío.
+                </p>
+
+            </div>
+
+            <hr>
+
+            <div class="resumen">
+
+                <p>
+                    Subtotal:
+                    <strong>
+                        Bs <span id="subtotal">0</span>
+                    </strong>
+                </p>
+
+                <p id="mensajeDelivery"></p>
+
+                <p>
+                    Delivery:
+                    <strong>
+                        Bs <span id="precioDelivery">0</span>
+                    </strong>
+                </p>
+
+                <h3>
+                    Total:
+                    Bs <span id="total">0</span>
+                </h3>
+
+            </div>
+
+            <button
+                class="boton-whatsapp"
+                onclick="enviarPedidoWhatsApp()"
+            >
+                📱 Pedir por WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PANEL DE AVISOS
+    ========================== -->
+
+    <section class="panel-admin">
+
+        <p class="pequeno">HERRAMIENTA DEL NEGOCIO</p>
+
+        <h2>📢 ¿Llegó un producto nuevo?</h2>
+
+        <p>
+            Escribe el producto que llegó y prepara un aviso
+            para tus clientes.
+        </p>
+
+        <div class="form-aviso">
+
+            <input
+                type="text"
+                id="productoNuevo"
+                placeholder="Ej. Chirimoya"
+            >
+
+            <input
+                type="text"
+                id="precioNuevo"
+                placeholder="Precio. Ej. Bs 15/kg"
+            >
+
+            <button
+                class="boton-principal"
+                onclick="crearAviso()"
+            >
+                Crear aviso
+            </button>
+
+        </div>
+
+        <div id="resultadoAviso"></div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section id="contacto" class="contacto">
+
+        <h2>¿Necesitas ayuda?</h2>
+
+        <p>
+            Escríbenos directamente por WhatsApp.
+        </p>
+
+        <a
+            href="https://wa.me/59176812242"
+            target="_blank"
+            class="boton-whatsapp"
+        >
+            📱 Contactar por WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        <strong>🍎 Tienda Fruti Jhanet</strong>
+
+        <p>
+            Frutos secos · Frutas · Abarrotes
+        </p>
+
+        <p>
+            © 2026 Fruti Jhanet
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

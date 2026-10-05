@@ -1,0 +1,814 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fffdf8;
+    color: #333;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    padding: 18px 6%;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #4c8c2b;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4c8c2b;
+}
+
+.boton-carrito {
+    border: none;
+    background: #4c8c2b;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+#contadorCarrito {
+    background: white;
+    color: #4c8c2b;
+
+    padding: 3px 7px;
+
+    border-radius: 50%;
+
+    margin-left: 5px;
+}
+
+
+/* =========================
+   AVISO
+========================= */
+
+.aviso {
+    background: #ffb703;
+    padding: 12px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aviso p {
+    margin-top: 4px;
+}
+
+.aviso button {
+    border: none;
+    background: white;
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 60px 8%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.25)
+        ),
+        url("img/tienda.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.hero-texto {
+    max-width: 600px;
+}
+
+.pequeno {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: #ffcf33;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.boton-principal {
+    border: none;
+
+    background: #4c8c2b;
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+}
+
+.boton-principal:hover {
+    transform: scale(1.03);
+}
+
+.boton-whatsapp {
+    display: inline-block;
+
+    background: #25D366;
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    width: 100%;
+}
+
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.categorias {
+    padding: 60px 7%;
+    text-align: center;
+}
+
+.categorias h2 {
+    margin-bottom: 30px;
+}
+
+.categorias-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.categorias-grid button {
+    border: none;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.categorias-grid button:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.productos-seccion {
+    padding: 60px 7%;
+}
+
+.titulo-seccion {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.titulo-seccion h2 {
+    margin-top: 8px;
+}
+
+.titulo-seccion button {
+    border: 1px solid #4c8c2b;
+
+    background: white;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.productos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.producto {
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto-imagen {
+    height: 200px;
+
+    background: #f1eee6;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 70px;
+}
+
+.producto-info {
+    padding: 18px;
+}
+
+.producto-info h3 {
+    margin-bottom: 8px;
+}
+
+.categoria-producto {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.precio {
+    font-size: 21px;
+
+    color: #4c8c2b;
+
+    font-weight: bold;
+
+    margin: 10px 0;
+}
+
+.boton-agregar {
+    width: 100%;
+
+    border: none;
+
+    background: #4c8c2b;
+
+    color: white;
+
+    padding: 11px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   NOSOTROS
+========================= */
+
+.nosotros {
+    padding: 70px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    background: #f5f1e8;
+}
+
+.nosotros h2 {
+    font-size: 40px;
+
+    margin: 15px 0;
+}
+
+.nosotros p {
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+.nosotros-imagen {
+    min-height: 300px;
+
+    border-radius: 25px;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 100px;
+}
+
+
+/* =========================
+   MODALES
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    z-index: 2000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    position: relative;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+}
+
+.cerrar {
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.modal-contenido h2 {
+    margin-bottom: 15px;
+}
+
+.modal-contenido label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+}
+
+.modal-contenido input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+}
+
+.checkbox {
+    display: flex !important;
+
+    gap: 8px;
+
+    align-items: flex-start;
+
+    font-weight: normal !important;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
+.item-carrito {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.cantidad {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.cantidad button {
+    border: none;
+
+    background: #eee;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.eliminar {
+    border: none;
+
+    background: none;
+
+    color: red;
+
+    cursor: pointer;
+}
+
+.resumen {
+    margin-top: 15px;
+}
+
+.resumen p {
+    margin: 10px 0;
+}
+
+.resumen h3 {
+    font-size: 22px;
+
+    margin: 15px 0;
+}
+
+#mensajeDelivery {
+    color: #4c8c2b;
+
+    font-weight: bold;
+}
+
+.carrito-vacio {
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   PANEL ADMIN
+========================= */
+
+.panel-admin {
+    margin: 60px 7%;
+
+    padding: 40px;
+
+    background: #e9f5df;
+
+    border-radius: 25px;
+}
+
+.panel-admin h2 {
+    margin: 10px 0;
+}
+
+.form-aviso {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.form-aviso input {
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+
+    flex: 1;
+}
+
+.resultado-aviso {
+    margin-top: 20px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contacto {
+    padding: 70px 7%;
+
+    text-align: center;
+
+    background: white;
+}
+
+.contacto p {
+    margin: 15px 0 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px;
+
+    background: #2e4721;
+
+    color: white;
+
+    text-align: center;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .productos-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .categorias-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .nosotros {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .aviso {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+    .form-aviso {
+        flex-direction: column;
+    }
+
+}
+.grupo-whatsapp {
+    margin: 30px 0;
+    padding: 30px 20px;
+    text-align: center;
+    background: #f1fdf4;
+    border-radius: 15px;
+    border: 1px solid #d5f2dc;
+}
+
+.grupo-contenido h2 {
+    margin-bottom: 10px;
+}
+
+.grupo-contenido p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 14px 25px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+}
+/* ==================================================
+   OPCIONES DE PRECIO / CALIDAD
+================================================== */
+
+.titulo-opciones {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+
+.opciones-precio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+
+.opcion-precio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+
+    border: 2px solid #ddd;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.opcion-precio:hover {
+    border-color: #25D366;
+}
+
+
+.opcion-precio input {
+    margin-right: 8px;
+}
+
+
+.opcion-precio:has(input:checked) {
+    border-color: #25D366;
+    background: #f0fff5;
+}
+
+
+.opcion-precio strong {
+    margin-left: auto;
+} 
